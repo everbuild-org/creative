@@ -359,6 +359,9 @@ public final class ItemSerializer implements JsonResourceSerializer<Item>, JsonR
             case "trident":
                 render = SpecialRender.trident();
                 break;
+            case "player_head":
+                render = SpecialRender.playerHead();
+                break;
             default:
                 throw new IllegalArgumentException("Unknown special render type: " + type);
         }
