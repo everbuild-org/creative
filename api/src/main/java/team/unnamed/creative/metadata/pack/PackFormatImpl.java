@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.pack;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -102,20 +100,6 @@ final class PackFormatImpl implements PackFormat {
     @Deprecated
     public boolean isInRange(int format) {
         return isInRange(FormatVersion.of(format));
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("format", format),
-                ExaminableProperty.of("min", min),
-                ExaminableProperty.of("max", max)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

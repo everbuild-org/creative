@@ -24,7 +24,6 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.Examinable;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,7 +37,7 @@ import java.util.Map;
  * @see Font
  * @since 1.0.0
  */
-public interface FontProvider extends Examinable {
+public interface FontProvider {
     /**
      * Creates a new bit-map font from the provided values
      *

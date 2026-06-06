@@ -24,8 +24,6 @@
 package team.unnamed.creative.item.special;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.base.WoodType;
@@ -62,15 +60,6 @@ final class SignSpecialRenderImpl implements SignSpecialRender {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("hanging", hanging),
-            ExaminableProperty.of("woodType", woodType),
-            ExaminableProperty.of("texture", texture)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SignSpecialRenderImpl that = (SignSpecialRenderImpl) o;
@@ -82,10 +71,5 @@ final class SignSpecialRenderImpl implements SignSpecialRender {
     @Override
     public int hashCode() {
         return Objects.hash(hanging, woodType, texture);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

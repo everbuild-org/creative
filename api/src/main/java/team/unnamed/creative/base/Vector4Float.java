@@ -23,16 +23,12 @@
  */
 package team.unnamed.creative.base;
 
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 /**
  * Represents a fixed-size vector of four 32-bit
@@ -46,7 +42,7 @@ import java.util.stream.Stream;
  */
 @Deprecated
 @ApiStatus.ScheduledForRemoval(inVersion = "2.0.0")
-public final class Vector4Float implements Examinable, Iterable<Float> {
+public final class Vector4Float implements Iterable<Float> {
 
     /**
      * Constant for {@link Vector2Float} value with
@@ -127,21 +123,6 @@ public final class Vector4Float implements Examinable, Iterable<Float> {
     @Override
     public Iterator<Float> iterator() {
         return Arrays.asList(x, y, x2, y2).iterator();
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("x", x),
-                ExaminableProperty.of("y", y),
-                ExaminableProperty.of("x2", x2),
-                ExaminableProperty.of("y2", y2)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

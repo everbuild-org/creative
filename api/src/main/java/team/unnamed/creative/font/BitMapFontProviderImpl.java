@@ -24,15 +24,12 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 import static team.unnamed.creative.util.MoreCollections.immutableListOf;
@@ -115,18 +112,13 @@ final class BitMapFontProviderImpl implements BitMapFontProvider {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("height", height),
-                ExaminableProperty.of("ascent", ascent),
-                ExaminableProperty.of("file", file),
-                ExaminableProperty.of("chars", characters)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "BitMapFontProvider{" +
+                "file=" + file +
+                ", height=" + height +
+                ", ascent=" + ascent +
+                ", characters=" + characters +
+                '}';
     }
 
     @Override

@@ -23,7 +23,6 @@
  */
 package team.unnamed.creative.item;
 
-import net.kyori.examination.Examinable;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -59,7 +58,7 @@ public interface SelectItemModel extends ItemModel {
                 .addCases(cases());
     }
 
-    interface Case extends Examinable {
+    interface Case {
         @NotNull List<String> when();
 
         @NotNull ItemModel model();

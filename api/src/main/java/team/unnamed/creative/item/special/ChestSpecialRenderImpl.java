@@ -24,8 +24,6 @@
 package team.unnamed.creative.item.special;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -57,14 +55,6 @@ final class ChestSpecialRenderImpl implements ChestSpecialRender {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("texture", texture),
-                ExaminableProperty.of("openness", openness)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ChestSpecialRenderImpl that = (ChestSpecialRenderImpl) o;
@@ -74,10 +64,5 @@ final class ChestSpecialRenderImpl implements ChestSpecialRender {
     @Override
     public int hashCode() {
         return Objects.hash(texture, openness);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

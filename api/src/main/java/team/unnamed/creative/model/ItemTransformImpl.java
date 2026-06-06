@@ -23,13 +23,10 @@
  */
 package team.unnamed.creative.model;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import team.unnamed.creative.base.Vector3Float;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -82,17 +79,12 @@ final class ItemTransformImpl implements ItemTransform {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("rotation", rotation),
-                ExaminableProperty.of("translation", translation),
-                ExaminableProperty.of("scale", scale)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "ItemTransform{" +
+                "rotation=" + rotation +
+                ", translation=" + translation +
+                ", scale=" + scale +
+                '}';
     }
 
     @Override

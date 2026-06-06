@@ -24,8 +24,6 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.IllegalFormatException;
@@ -92,19 +90,6 @@ public class LegacyUnicodeFontProvider implements FontProvider {
      */
     public String template() {
         return template;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("sizes", sizes),
-                ExaminableProperty.of("template", template)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

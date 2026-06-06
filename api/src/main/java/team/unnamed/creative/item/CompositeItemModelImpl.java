@@ -23,14 +23,11 @@
  */
 package team.unnamed.creative.item;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -47,13 +44,6 @@ final class CompositeItemModelImpl implements CompositeItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("models", models)
-        );
-    }
-
-    @Override
     public boolean equals(final @Nullable Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CompositeItemModelImpl that = (CompositeItemModelImpl) o;
@@ -63,10 +53,5 @@ final class CompositeItemModelImpl implements CompositeItemModel {
     @Override
     public int hashCode() {
         return Objects.hashCode(models);
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

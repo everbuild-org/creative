@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.sodium;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import team.unnamed.creative.metadata.MetadataPart;
@@ -50,16 +48,6 @@ public class SodiumMetaImpl implements SodiumMeta {
     @Override
     public @NotNull Class<? extends MetadataPart> type() {
         return SodiumMeta.class;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(ExaminableProperty.of("ignored_shaders", ignoredShaders));
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

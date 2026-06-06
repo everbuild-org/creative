@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.item.property.ItemBooleanProperty;
@@ -61,15 +59,6 @@ final class ConditionItemModelImpl implements ConditionItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("condition", condition),
-            ExaminableProperty.of("onTrue", onTrue),
-            ExaminableProperty.of("onFalse", onFalse)
-        );
-    }
-
-    @Override
     public boolean equals(final @Nullable Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         final ConditionItemModelImpl that = (ConditionItemModelImpl) o;
@@ -79,10 +68,5 @@ final class ConditionItemModelImpl implements ConditionItemModel {
     @Override
     public int hashCode() {
         return Objects.hash(condition, onTrue, onFalse);
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

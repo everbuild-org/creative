@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.gui;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -55,19 +53,6 @@ final class TileGuiScalingImpl implements TileGuiScaling {
     @Override
     public int height() {
         return height;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("width", width),
-                ExaminableProperty.of("height", height)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

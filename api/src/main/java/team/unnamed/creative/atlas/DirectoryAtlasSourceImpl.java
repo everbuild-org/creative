@@ -23,11 +23,7 @@
  */
 package team.unnamed.creative.atlas;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -55,16 +51,11 @@ final class DirectoryAtlasSourceImpl implements DirectoryAtlasSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("source", source),
-                ExaminableProperty.of("prefix", prefix)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "DirectoryAtlasSource{" +
+                "source='" + source + '\'' +
+                ", prefix='" + prefix + '\'' +
+                '}';
     }
 
     @Override

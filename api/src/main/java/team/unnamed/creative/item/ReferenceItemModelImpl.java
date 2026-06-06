@@ -24,8 +24,6 @@
 package team.unnamed.creative.item;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import team.unnamed.creative.item.tint.TintSource;
 
@@ -55,14 +53,6 @@ final class ReferenceItemModelImpl implements ReferenceItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("model", model),
-            ExaminableProperty.of("tints", tints)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ReferenceItemModelImpl that = (ReferenceItemModelImpl) o;
@@ -72,10 +62,5 @@ final class ReferenceItemModelImpl implements ReferenceItemModel {
     @Override
     public int hashCode() {
         return Objects.hash(model, tints);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

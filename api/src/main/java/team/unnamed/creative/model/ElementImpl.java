@@ -23,7 +23,6 @@
  */
 package team.unnamed.creative.model;
 
-import net.kyori.examination.ExaminableProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -33,7 +32,6 @@ import team.unnamed.creative.base.Vector3Float;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 import static team.unnamed.creative.util.MoreCollections.immutableMapOf;
@@ -113,15 +111,15 @@ final class ElementImpl implements Element {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("from", from),
-                ExaminableProperty.of("to", to),
-                ExaminableProperty.of("rotation", rotation),
-                ExaminableProperty.of("shade", shade),
-                ExaminableProperty.of("faces", faces),
-                ExaminableProperty.of("light_emission", lightEmission)
-        );
+    public String toString() {
+        return "Element{" +
+                "from=" + from +
+                ", to=" + to +
+                ", rotation=" + rotation +
+                ", shade=" + shade +
+                ", faces=" + faces +
+                ", lightEmission=" + lightEmission +
+                '}';
     }
 
     @Override

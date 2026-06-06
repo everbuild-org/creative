@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.animation;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -88,22 +86,6 @@ final class AnimationMetaImpl implements AnimationMeta {
     @Override
     public @NotNull @Unmodifiable List<AnimationFrame> frames() {
         return frames;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("interpolate", interpolate),
-                ExaminableProperty.of("width", width),
-                ExaminableProperty.of("height", height),
-                ExaminableProperty.of("frameTime", frameTime),
-                ExaminableProperty.of("frames", frames)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

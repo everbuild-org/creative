@@ -24,8 +24,6 @@
 package team.unnamed.creative.item.tint;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,14 +58,6 @@ final class KeyedAndBackedTintSourceImpl implements KeyedAndBackedTintSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("key", key),
-            ExaminableProperty.of("defaultTint", defaultTint)
-        );
-    }
-
-    @Override
     public boolean equals(final @Nullable Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         final KeyedAndBackedTintSourceImpl that = (KeyedAndBackedTintSourceImpl) o;
@@ -77,10 +67,5 @@ final class KeyedAndBackedTintSourceImpl implements KeyedAndBackedTintSource {
     @Override
     public int hashCode() {
         return Objects.hash(key, defaultTint);
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

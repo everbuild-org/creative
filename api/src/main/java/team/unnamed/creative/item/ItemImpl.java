@@ -24,8 +24,6 @@
 package team.unnamed.creative.item;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -67,16 +65,6 @@ final class ItemImpl implements Item {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("model", model),
-                ExaminableProperty.of("handAnimationOnSwap", handAnimationOnSwap),
-                ExaminableProperty.of("oversized_in_gui", oversizedInGui)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ItemImpl item = (ItemImpl) o;
@@ -89,10 +77,5 @@ final class ItemImpl implements Item {
     @Override
     public int hashCode() {
         return Objects.hash(key, model, handAnimationOnSwap, oversizedInGui);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

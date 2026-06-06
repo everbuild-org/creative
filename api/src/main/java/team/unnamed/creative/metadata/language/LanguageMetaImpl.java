@@ -24,8 +24,6 @@
 package team.unnamed.creative.metadata.language;
 
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -64,18 +62,6 @@ final class LanguageMetaImpl implements LanguageMeta {
     @Override
     public @NotNull @Unmodifiable Map<String, LanguageEntry> languages() {
         return languages;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("languages", languages)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

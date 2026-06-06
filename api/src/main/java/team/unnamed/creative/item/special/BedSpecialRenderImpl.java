@@ -24,12 +24,9 @@
 package team.unnamed.creative.item.special;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -46,13 +43,6 @@ final class BedSpecialRenderImpl implements BedSpecialRender {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("texture", texture)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         BedSpecialRenderImpl that = (BedSpecialRenderImpl) o;
@@ -62,10 +52,5 @@ final class BedSpecialRenderImpl implements BedSpecialRender {
     @Override
     public int hashCode() {
         return Objects.hashCode(texture);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

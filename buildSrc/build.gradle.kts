@@ -14,9 +14,4 @@ tasks {
     compileJava {
         options.release.set(8)
     }
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
-    }
 }

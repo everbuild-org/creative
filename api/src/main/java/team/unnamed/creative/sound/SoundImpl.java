@@ -24,13 +24,10 @@
 package team.unnamed.creative.sound;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import team.unnamed.creative.base.Writable;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -55,7 +52,10 @@ final class SoundImpl implements Sound {
 
     @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "Sound{" +
+                "key=" + key +
+                ", data=" + data +
+                '}';
     }
 
     @Override
@@ -69,13 +69,5 @@ final class SoundImpl implements Sound {
     @Override
     public int hashCode() {
         return Objects.hash(key, data);
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("data", data)
-        );
     }
 }

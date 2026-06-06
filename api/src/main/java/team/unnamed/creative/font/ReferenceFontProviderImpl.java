@@ -24,7 +24,6 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,7 +45,9 @@ final class ReferenceFontProviderImpl implements ReferenceFontProvider {
 
     @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "ReferenceFontProvider{" +
+                "id=" + id +
+                '}';
     }
 
     @Override

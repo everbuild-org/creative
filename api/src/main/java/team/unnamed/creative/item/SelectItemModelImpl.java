@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.item.property.ItemStringProperty;
@@ -32,7 +30,6 @@ import team.unnamed.creative.item.property.ItemStringProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -63,15 +60,6 @@ final class SelectItemModelImpl implements SelectItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("property", property),
-            ExaminableProperty.of("cases", cases),
-            ExaminableProperty.of("fallback", fallback)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SelectItemModelImpl that = (SelectItemModelImpl) o;
@@ -81,11 +69,6 @@ final class SelectItemModelImpl implements SelectItemModel {
     @Override
     public int hashCode() {
         return Objects.hash(property, cases, fallback);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     static final class CaseImpl implements Case {
@@ -108,14 +91,6 @@ final class SelectItemModelImpl implements SelectItemModel {
         }
 
         @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                ExaminableProperty.of("when", when),
-                ExaminableProperty.of("model", model)
-            );
-        }
-
-        @Override
         public boolean equals(Object o) {
             if (o == null || getClass() != o.getClass()) return false;
             CaseImpl that = (CaseImpl) o;
@@ -125,11 +100,6 @@ final class SelectItemModelImpl implements SelectItemModel {
         @Override
         public int hashCode() {
             return Objects.hash(when, model);
-        }
-
-        @Override
-        public String toString() {
-            return examine(StringExaminer.simpleEscaping());
         }
     }
 

@@ -24,8 +24,6 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import team.unnamed.creative.base.Vector2Float;
@@ -119,22 +117,6 @@ public class TrueTypeFontProvider implements FontProvider {
      */
     public @Unmodifiable List<String> skip() {
         return skip;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("file", file),
-                ExaminableProperty.of("shift", shift),
-                ExaminableProperty.of("size", size),
-                ExaminableProperty.of("oversample", oversample),
-                ExaminableProperty.of("skip", skip)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

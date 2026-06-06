@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.property;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -46,13 +44,6 @@ final class CustomModelDataItemBooleanPropertyImpl implements CustomModelDataIte
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("index", index)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CustomModelDataItemBooleanPropertyImpl that = (CustomModelDataItemBooleanPropertyImpl) o;
@@ -62,10 +53,5 @@ final class CustomModelDataItemBooleanPropertyImpl implements CustomModelDataIte
     @Override
     public int hashCode() {
         return Objects.hashCode(index);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

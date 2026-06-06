@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.property;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -53,14 +51,6 @@ final class HasComponentItemBooleanPropertyImpl implements HasComponentItemBoole
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("component", component),
-                ExaminableProperty.of("ignoreDefault", ignoreDefault)
-        );
-    }
-
-    @Override
     public boolean equals(final @Nullable Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         final HasComponentItemBooleanPropertyImpl that = (HasComponentItemBooleanPropertyImpl) o;
@@ -70,10 +60,5 @@ final class HasComponentItemBooleanPropertyImpl implements HasComponentItemBoole
     @Override
     public int hashCode() {
         return Objects.hash(component, ignoreDefault);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

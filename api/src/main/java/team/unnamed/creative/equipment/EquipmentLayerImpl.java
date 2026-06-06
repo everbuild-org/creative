@@ -24,13 +24,10 @@
 package team.unnamed.creative.equipment;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -61,31 +58,11 @@ final class EquipmentLayerImpl implements EquipmentLayer {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("texture", texture),
-                ExaminableProperty.of("dye", dye),
-                ExaminableProperty.of("usePlayerTexture", usePlayerTexture)
-        );
-    }
-
-    @Override
-    public boolean equals(final @Nullable Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof EquipmentLayerImpl)) return false;
-        final EquipmentLayerImpl that = (EquipmentLayerImpl) obj;
-        return texture.equals(that.texture)
-                && Objects.equals(dye, that.dye)
-                && usePlayerTexture == that.usePlayerTexture;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(texture, dye, usePlayerTexture);
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "EquipmentLayer{" +
+                "texture=" + texture +
+                ", dye=" + dye +
+                ", usePlayerTexture=" + usePlayerTexture +
+                '}';
     }
 }

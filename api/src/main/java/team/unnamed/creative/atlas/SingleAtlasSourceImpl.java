@@ -24,13 +24,10 @@
 package team.unnamed.creative.atlas;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -55,16 +52,11 @@ final class SingleAtlasSourceImpl implements SingleAtlasSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("resource", resource),
-                ExaminableProperty.of("sprite", sprite)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "SingleAtlasSource{" +
+                "resource=" + resource +
+                ", sprite=" + sprite +
+                '}';
     }
 
     @Override

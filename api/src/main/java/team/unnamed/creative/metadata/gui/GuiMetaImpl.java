@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.gui;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.metadata.MetadataPart;
@@ -49,18 +47,6 @@ final class GuiMetaImpl implements GuiMeta {
     @Override
     public @NotNull GuiScaling scaling() {
         return scaling;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("scaling", scaling)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

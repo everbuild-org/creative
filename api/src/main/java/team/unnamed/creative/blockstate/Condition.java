@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.blockstate;
 
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -40,7 +38,7 @@ import java.util.stream.Stream;
  * @see Selector
  * @since 1.0.0
  */
-public interface Condition extends Examinable {
+public interface Condition {
 
     Condition NONE = new Condition() {
 
@@ -82,14 +80,6 @@ public interface Condition extends Examinable {
         public List<Condition> conditions() {
             return conditions;
         }
-
-        @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                    ExaminableProperty.of("conditions", conditions)
-            );
-        }
-
     }
 
     class Or implements Condition {
@@ -103,14 +93,6 @@ public interface Condition extends Examinable {
         public List<Condition> conditions() {
             return conditions;
         }
-
-        @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                    ExaminableProperty.of("conditions", conditions)
-            );
-        }
-
     }
 
     class Match implements Condition {
@@ -130,15 +112,5 @@ public interface Condition extends Examinable {
         public Object value() {
             return value;
         }
-
-        @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                    ExaminableProperty.of("key", key),
-                    ExaminableProperty.of("value", value)
-            );
-        }
-
     }
-
 }

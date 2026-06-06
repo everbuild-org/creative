@@ -24,15 +24,12 @@
 package team.unnamed.creative.atlas;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import team.unnamed.creative.util.MoreCollections;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -71,17 +68,12 @@ final class PalettedPermutationsAtlasSourceImpl implements PalettedPermutationsA
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("textures", textures),
-                ExaminableProperty.of("paletteKey", paletteKey),
-                ExaminableProperty.of("permutations", permutations)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "PalettedPermutationsAtlasSource{" +
+                "textures=" + textures +
+                ", paletteKey=" + paletteKey +
+                ", permutations=" + permutations +
+                '}';
     }
 
     @Override

@@ -23,14 +23,11 @@
  */
 package team.unnamed.creative.server.request;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -81,19 +78,14 @@ final class ResourcePackDownloadRequestImpl implements ResourcePackDownloadReque
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("uuid", uuid),
-                ExaminableProperty.of("username", username),
-                ExaminableProperty.of("clientVersion", clientVersion),
-                ExaminableProperty.of("clientVersionId", clientVersionId),
-                ExaminableProperty.of("packFormat", packFormat)
-        );
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "ResourcePackDownloadRequest{" +
+                "uuid=" + uuid +
+                ", username='" + username + '\'' +
+                ", clientVersion='" + clientVersion + '\'' +
+                ", clientVersionId='" + clientVersionId + '\'' +
+                ", packFormat=" + packFormat +
+                '}';
     }
 
     @Override

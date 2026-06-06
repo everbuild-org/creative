@@ -24,8 +24,6 @@
 package team.unnamed.creative.item;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import team.unnamed.creative.item.special.SpecialRender;
 
@@ -54,14 +52,6 @@ final class SpecialItemModelImpl implements SpecialItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("base", base),
-            ExaminableProperty.of("render", render)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SpecialItemModelImpl that = (SpecialItemModelImpl) o;
@@ -71,10 +61,5 @@ final class SpecialItemModelImpl implements SpecialItemModel {
     @Override
     public int hashCode() {
         return Objects.hash(render, base);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

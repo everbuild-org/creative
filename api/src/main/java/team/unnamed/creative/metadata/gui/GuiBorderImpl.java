@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.gui;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -74,21 +72,6 @@ final class GuiBorderImpl implements GuiBorder {
     @Override
     public int right() {
         return right;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("top", top),
-                ExaminableProperty.of("bottom", bottom),
-                ExaminableProperty.of("left", left),
-                ExaminableProperty.of("right", right)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

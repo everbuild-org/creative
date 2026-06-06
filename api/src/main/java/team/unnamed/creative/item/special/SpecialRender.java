@@ -24,7 +24,6 @@
 package team.unnamed.creative.item.special;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.Examinable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.base.CubeFace;
@@ -40,7 +39,7 @@ import team.unnamed.creative.base.WoodType;
  * @sinceMinecraft 1.21.4
  * @sincePackFormat 43
  */
-public interface SpecialRender extends Examinable {
+public interface SpecialRender {
     /**
      * Returns a special renderer which renders a banner with
      * patterns from the {@code minecraft:banner_patterns} component
@@ -264,18 +263,6 @@ public interface SpecialRender extends Examinable {
      */
     static @NotNull HeadSpecialRender head(final @NotNull HeadType kind) {
         return head(kind, null, HeadSpecialRender.DEFAULT_ANIMATION);
-    }
-
-    /**
-     * Returns a special renderer which renders a player head using the item profile component
-     *
-     * @return A player head special renderer
-     * @since 1.8.4
-     * @sinceMinecraft 1.21.6
-     * @sincePackFormat 63
-     */
-    static @NotNull NoFieldSpecialRender playerHead() {
-        return NoFieldSpecialRenderImpl.PLAYER_HEAD;
     }
 
     /**

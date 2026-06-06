@@ -23,13 +23,10 @@
  */
 package team.unnamed.creative.equipment;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 final class EquipmentLayerDyeImpl implements EquipmentLayerDye {
     static final EquipmentLayerDye EMPTY = new EquipmentLayerDyeImpl(null);
@@ -46,26 +43,9 @@ final class EquipmentLayerDyeImpl implements EquipmentLayerDye {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("colorWhenUndyed", colorWhenUndyed)
-        );
-    }
-
-    @Override
-    public boolean equals(final @Nullable Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        final EquipmentLayerDyeImpl that = (EquipmentLayerDyeImpl) o;
-        return Objects.equals(colorWhenUndyed, that.colorWhenUndyed);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(colorWhenUndyed);
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "EquipmentLayerDye{" +
+                "colorWhenUndyed=" + colorWhenUndyed +
+                '}';
     }
 }

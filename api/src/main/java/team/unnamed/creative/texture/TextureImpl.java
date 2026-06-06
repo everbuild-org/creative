@@ -24,15 +24,12 @@
 package team.unnamed.creative.texture;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.base.Writable;
 import team.unnamed.creative.metadata.Metadata;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -68,17 +65,12 @@ final class TextureImpl implements Texture {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("data", data),
-                ExaminableProperty.of("meta", meta)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "Texture{" +
+                "key=" + key +
+                ", data=" + data +
+                ", meta=" + meta +
+                '}';
     }
 
     @Override

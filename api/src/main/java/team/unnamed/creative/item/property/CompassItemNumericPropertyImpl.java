@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.property;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -52,14 +50,6 @@ final class CompassItemNumericPropertyImpl implements CompassItemNumericProperty
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("target", target),
-                ExaminableProperty.of("wobble", wobble)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CompassItemNumericPropertyImpl that = (CompassItemNumericPropertyImpl) o;
@@ -69,10 +59,5 @@ final class CompassItemNumericPropertyImpl implements CompassItemNumericProperty
     @Override
     public int hashCode() {
         return Objects.hash(target, wobble);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

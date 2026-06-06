@@ -24,8 +24,6 @@
 package team.unnamed.creative.sound;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.intellij.lang.annotations.Pattern;
 import org.intellij.lang.annotations.Subst;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +37,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -88,16 +85,11 @@ final class SoundRegistryImpl implements SoundRegistry {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("namespace", namespace),
-                ExaminableProperty.of("sounds", sounds)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "SoundRegistry{" +
+                "namespace='" + namespace + '\'' +
+                ", sounds=" + sounds +
+                '}';
     }
 
     @Override

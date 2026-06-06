@@ -24,14 +24,11 @@
 package team.unnamed.creative.base;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 final class KeyPatternImpl implements KeyPattern {
 
@@ -66,16 +63,11 @@ final class KeyPatternImpl implements KeyPattern {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("namespace", namespace),
-                ExaminableProperty.of("value", value)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "KeyPattern{" +
+                "namespace=" + namespace +
+                ", value=" + value +
+                '}';
     }
 
     @Override

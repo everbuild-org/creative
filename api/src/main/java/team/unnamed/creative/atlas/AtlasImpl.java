@@ -24,7 +24,6 @@
 package team.unnamed.creative.atlas;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -33,7 +32,6 @@ import team.unnamed.creative.util.MoreCollections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -66,11 +64,11 @@ final class AtlasImpl implements Atlas {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("sources", sources)
-        );
+    public String toString() {
+        return "Atlas{" +
+                "key=" + key +
+                ", sources=" + sources +
+                '}';
     }
 
     @Override

@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.property;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -52,14 +50,6 @@ final class TimeItemNumericPropertyImpl implements TimeItemNumericProperty {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("wobble", wobble),
-            ExaminableProperty.of("source", source)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         TimeItemNumericPropertyImpl that = (TimeItemNumericPropertyImpl) o;
@@ -69,10 +59,5 @@ final class TimeItemNumericPropertyImpl implements TimeItemNumericProperty {
     @Override
     public int hashCode() {
         return Objects.hash(wobble, source);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

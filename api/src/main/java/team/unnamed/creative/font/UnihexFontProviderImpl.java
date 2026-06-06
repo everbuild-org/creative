@@ -24,15 +24,12 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 import static team.unnamed.creative.util.MoreCollections.immutableListOf;
@@ -57,16 +54,11 @@ final class UnihexFontProviderImpl implements UnihexFontProvider {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("file", file),
-                ExaminableProperty.of("sizes", sizes)
-        );
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "UnihexFontProvider{" +
+                "file=" + file +
+                ", sizes=" + sizes +
+                '}';
     }
 
     @Override
@@ -145,18 +137,13 @@ final class UnihexFontProviderImpl implements UnihexFontProvider {
         }
 
         @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                    ExaminableProperty.of("from", from),
-                    ExaminableProperty.of("to", to),
-                    ExaminableProperty.of("left", left),
-                    ExaminableProperty.of("right", right)
-            );
-        }
-
-        @Override
         public @NotNull String toString() {
-            return examine(StringExaminer.simpleEscaping());
+            return "SizeOverride{" +
+                    "from=" + from +
+                    ", to=" + to +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
         }
 
         @Override

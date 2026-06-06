@@ -24,8 +24,6 @@
 package team.unnamed.creative.item.special;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.base.HeadType;
@@ -62,15 +60,6 @@ final class HeadSpecialRenderImpl implements HeadSpecialRender {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("kind", kind),
-            ExaminableProperty.of("texture", texture),
-            ExaminableProperty.of("animation", animation)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         HeadSpecialRenderImpl that = (HeadSpecialRenderImpl) o;
@@ -82,10 +71,5 @@ final class HeadSpecialRenderImpl implements HeadSpecialRender {
     @Override
     public int hashCode() {
         return Objects.hash(kind, texture, animation);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

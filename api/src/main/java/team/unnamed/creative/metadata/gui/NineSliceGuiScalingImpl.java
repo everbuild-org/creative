@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.gui;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,21 +74,6 @@ final class NineSliceGuiScalingImpl implements NineSliceGuiScaling {
     @Override
     public boolean stretchInner() {
         return stretchInner;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("width", width),
-                ExaminableProperty.of("height", height),
-                ExaminableProperty.of("border", border),
-                ExaminableProperty.of("stretch_inner", stretchInner)
-        );
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

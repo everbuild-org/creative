@@ -24,15 +24,12 @@
 package team.unnamed.creative.atlas;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 import team.unnamed.creative.base.Vector2Float;
 import team.unnamed.creative.util.MoreCollections;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -68,17 +65,12 @@ final class UnstitchAtlasSourceImpl implements UnstitchAtlasSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("resource", resource),
-                ExaminableProperty.of("regions", regions),
-                ExaminableProperty.of("divisor", divisor)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "UnstitchAtlasSource{" +
+                "resource=" + resource +
+                ", regions=" + regions +
+                ", divisor=" + divisor +
+                '}';
     }
 
     @Override
@@ -132,12 +124,12 @@ final class UnstitchAtlasSourceImpl implements UnstitchAtlasSource {
         }
 
         @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                    ExaminableProperty.of("sprite", sprite),
-                    ExaminableProperty.of("position", position),
-                    ExaminableProperty.of("dimensions", dimensions)
-            );
+        public String toString() {
+            return "Region{" +
+                    "sprite=" + sprite +
+                    ", position=" + position +
+                    ", dimensions=" + dimensions +
+                    '}';
         }
 
     }

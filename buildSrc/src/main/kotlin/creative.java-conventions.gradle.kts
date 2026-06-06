@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    id("org.cadixdev.licenser")
+//    id("org.cadixdev.licenser")
 }
 
 repositories {
@@ -17,15 +17,15 @@ java {
     withJavadocJar()
     withSourcesJar()
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
-
-license {
-    header.set(rootProject.resources.text.fromFile("header.txt"))
-    include("**/*.java")
-    newLine.set(false)
-}
+//
+//license {
+//    header.set(rootProject.resources.text.fromFile("header.txt"))
+//    include("**/*.java")
+//    newLine.set(false)
+//}
 
 tasks {
     javadoc {
@@ -34,8 +34,5 @@ tasks {
             tags("sinceMinecraft:a:Since Minecraft:")
             tags("sincePackFormat:a:Since Resource-Pack Format:")
         }
-    }
-    test {
-        useJUnitPlatform()
     }
 }

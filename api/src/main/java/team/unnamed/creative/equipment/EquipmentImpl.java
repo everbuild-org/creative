@@ -24,8 +24,6 @@
 package team.unnamed.creative.equipment;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -33,7 +31,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -57,28 +54,11 @@ final class EquipmentImpl implements Equipment {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("layers", layers)
-        );
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        EquipmentImpl equipment = (EquipmentImpl) o;
-        return Objects.equals(key, equipment.key) && Objects.equals(layers, equipment.layers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key, layers);
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "Equipment{" +
+                "key=" + key +
+                ", layers=" + layers +
+                '}';
     }
 
     static final class BuilderImpl implements Builder {

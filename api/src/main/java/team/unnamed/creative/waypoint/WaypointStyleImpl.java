@@ -24,8 +24,6 @@
 package team.unnamed.creative.waypoint;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.Examiner;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 @ApiStatus.Internal
 public class WaypointStyleImpl implements WaypointStyle {
@@ -70,23 +67,13 @@ public class WaypointStyleImpl implements WaypointStyle {
     }
 
     @Override
-    public @NotNull String examinableName() {
-        return WaypointStyle.super.examinableName();
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("nearDistance", nearDistance),
-                ExaminableProperty.of("farDistance", farDistance),
-                ExaminableProperty.of("sprites", sprites)
-        );
-    }
-
-    @Override
-    public <R> @NotNull R examine(@NotNull Examiner<R> examiner) {
-        return WaypointStyle.super.examine(examiner);
+    public String toString() {
+        return "WaypointStyle{" +
+                "key=" + key +
+                ", nearDistance=" + nearDistance +
+                ", farDistance=" + farDistance +
+                ", sprites=" + sprites +
+                '}';
     }
 
     @Override

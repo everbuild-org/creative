@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.tint;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -50,14 +48,6 @@ final class CustomModelDataTintSourceImpl implements CustomModelDataTintSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("index", index),
-            ExaminableProperty.of("defaultTint", defaultTint)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CustomModelDataTintSourceImpl that = (CustomModelDataTintSourceImpl) o;
@@ -67,10 +57,5 @@ final class CustomModelDataTintSourceImpl implements CustomModelDataTintSource {
     @Override
     public int hashCode() {
         return Objects.hash(index, defaultTint);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

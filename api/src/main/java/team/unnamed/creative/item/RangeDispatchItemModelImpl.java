@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.unnamed.creative.item.property.ItemNumericProperty;
@@ -70,16 +68,6 @@ final class RangeDispatchItemModelImpl implements RangeDispatchItemModel {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("property", property),
-            ExaminableProperty.of("scale", scale),
-            ExaminableProperty.of("entries", entries),
-            ExaminableProperty.of("fallback", fallback)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         RangeDispatchItemModelImpl that = (RangeDispatchItemModelImpl) o;
@@ -92,11 +80,6 @@ final class RangeDispatchItemModelImpl implements RangeDispatchItemModel {
     @Override
     public int hashCode() {
         return Objects.hash(property, scale, entries, fallback);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     static final class EntryImpl implements Entry {
@@ -119,14 +102,6 @@ final class RangeDispatchItemModelImpl implements RangeDispatchItemModel {
         }
 
         @Override
-        public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-            return Stream.of(
-                ExaminableProperty.of("threshold", threshold),
-                ExaminableProperty.of("model", model)
-            );
-        }
-
-        @Override
         public boolean equals(Object o) {
             if (o == null || getClass() != o.getClass()) return false;
             EntryImpl entry = (EntryImpl) o;
@@ -137,11 +112,6 @@ final class RangeDispatchItemModelImpl implements RangeDispatchItemModel {
         @Override
         public int hashCode() {
             return Objects.hash(threshold, model);
-        }
-
-        @Override
-        public String toString() {
-            return examine(StringExaminer.simpleEscaping());
         }
     }
 

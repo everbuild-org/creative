@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.metadata.overlays;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.intellij.lang.annotations.RegExp;
 import org.jetbrains.annotations.NotNull;
 import team.unnamed.creative.metadata.pack.PackFormat;
@@ -63,19 +61,6 @@ final class OverlayEntryImpl implements OverlayEntry {
     @Override
     public @NotNull String directory() {
         return directory;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("formats", formats),
-                ExaminableProperty.of("directory", directory)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

@@ -24,8 +24,6 @@
 package team.unnamed.creative.model;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -35,7 +33,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -110,22 +107,17 @@ final class ModelImpl implements Model {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("parent", parent),
-                ExaminableProperty.of("ambientocclusion", ambientOcclusion),
-                ExaminableProperty.of("display", display),
-                ExaminableProperty.of("textures", textures),
-                ExaminableProperty.of("guiLight", guiLight),
-                ExaminableProperty.of("elements", elements),
-                ExaminableProperty.of("overrides", overrides)
-        );
-    }
-
-    @Override
     public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "Model{" +
+                "key=" + key +
+                ", parent=" + parent +
+                ", ambientOcclusion=" + ambientOcclusion +
+                ", display=" + display +
+                ", textures=" + textures +
+                ", guiLight=" + guiLight +
+                ", elements=" + elements +
+                ", overrides=" + overrides +
+                '}';
     }
 
     @Override

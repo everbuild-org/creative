@@ -23,12 +23,8 @@
  */
 package team.unnamed.creative.item.tint;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 final class ConstantTintSourceImpl implements ConstantTintSource {
     private final int tint;
@@ -43,11 +39,6 @@ final class ConstantTintSourceImpl implements ConstantTintSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(ExaminableProperty.of("tint", tint));
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ConstantTintSourceImpl that = (ConstantTintSourceImpl) o;
@@ -57,10 +48,5 @@ final class ConstantTintSourceImpl implements ConstantTintSource {
     @Override
     public int hashCode() {
         return Objects.hashCode(tint);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

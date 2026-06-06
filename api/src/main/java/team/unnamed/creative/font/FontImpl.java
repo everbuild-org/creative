@@ -24,15 +24,12 @@
 package team.unnamed.creative.font;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -71,30 +68,11 @@ final class FontImpl implements Font {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("providers", providers)
-        );
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FontImpl that = (FontImpl) o;
-        return key.equals(that.key)
-                && providers.equals(that.providers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key, providers);
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "Font{" +
+                "key=" + key +
+                ", providers=" + providers +
+                '}';
     }
 
     static final class BuilderImpl implements Builder {

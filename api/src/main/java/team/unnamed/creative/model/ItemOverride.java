@@ -24,9 +24,6 @@
 package team.unnamed.creative.model;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
@@ -57,7 +54,7 @@ import static team.unnamed.creative.util.MoreCollections.immutableListOf;
  * here.
  */
 @Deprecated
-public class ItemOverride implements Examinable {
+public class ItemOverride {
 
     private final Key model;
     @Unmodifiable private final List<ItemPredicate> predicate;
@@ -91,19 +88,6 @@ public class ItemOverride implements Examinable {
      */
     public @Unmodifiable List<ItemPredicate> predicate() {
         return predicate;
-    }
-
-    @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("predicate", predicate),
-                ExaminableProperty.of("model", model)
-        );
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 
     @Override

@@ -23,8 +23,6 @@
  */
 package team.unnamed.creative.item.tint;
 
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -56,14 +54,6 @@ final class GrassTintSourceImpl implements GrassTintSource {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-            ExaminableProperty.of("temperature", temperature),
-            ExaminableProperty.of("downfall", downfall)
-        );
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         GrassTintSourceImpl that = (GrassTintSourceImpl) o;
@@ -73,10 +63,5 @@ final class GrassTintSourceImpl implements GrassTintSource {
     @Override
     public int hashCode() {
         return Objects.hash(temperature, downfall);
-    }
-
-    @Override
-    public String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

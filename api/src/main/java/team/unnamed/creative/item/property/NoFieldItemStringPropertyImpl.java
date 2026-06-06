@@ -24,8 +24,6 @@
 package team.unnamed.creative.item.property;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.intellij.lang.annotations.Subst;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -59,11 +57,6 @@ final class NoFieldItemStringPropertyImpl implements NoFieldItemStringProperty {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(ExaminableProperty.of("key", key));
-    }
-
-    @Override
     public boolean equals(final @Nullable Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         final NoFieldItemStringPropertyImpl that = (NoFieldItemStringPropertyImpl) o;
@@ -73,10 +66,5 @@ final class NoFieldItemStringPropertyImpl implements NoFieldItemStringProperty {
     @Override
     public int hashCode() {
         return Objects.hashCode(key);
-    }
-
-    @Override
-    public @NotNull String toString() {
-        return examine(StringExaminer.simpleEscaping());
     }
 }

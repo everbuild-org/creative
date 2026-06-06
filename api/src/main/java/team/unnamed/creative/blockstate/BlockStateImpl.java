@@ -24,14 +24,11 @@
 package team.unnamed.creative.blockstate;
 
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -72,17 +69,12 @@ final class BlockStateImpl implements BlockState {
     }
 
     @Override
-    public @NotNull Stream<? extends ExaminableProperty> examinableProperties() {
-        return Stream.of(
-                ExaminableProperty.of("key", key),
-                ExaminableProperty.of("variants", variants),
-                ExaminableProperty.of("multipart", multipart)
-        );
-    }
-
-    @Override
     public String toString() {
-        return examine(StringExaminer.simpleEscaping());
+        return "BlockState{" +
+                "key=" + key +
+                ", variants=" + variants +
+                ", multipart=" + multipart +
+                '}';
     }
 
     @Override
